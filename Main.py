@@ -9,8 +9,7 @@ start_date:datetime = datetime(2020, 1, 1)
 print(random_date(start_date, datetime.now()))
 
 users:List[User] = []
-used_names:List[str] = []
-used_names.append("")
+used_names:List[str] = [""]
 for i in range(10):
     name:str = ""
     while name in used_names:
@@ -25,3 +24,5 @@ for i in range(50):
     while user2 == user1 or user2 in user1.edges:
         user2 = choice(users)
     dt = random_date(start_date, datetime.now())
+    #TODO: make some kind of list of friend/unfriend events & add to list
+    # or just add the friend and list the friending/unfriending in a text file
