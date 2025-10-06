@@ -6,10 +6,10 @@ class User:
         self.name:str = name
         self.edges:List[Self] = []
 
-    def add_edge(self, user:Self):
+    def add_edge(self, user:Self)->None:
         self.edges.append(user)
 
-    def delete_edge(self, user:Self):
+    def delete_edge(self, user:Self)->None:
         if user in self.edges:
             self.edges.remove(user)
         user.remove_edge(self)

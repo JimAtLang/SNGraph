@@ -15,14 +15,14 @@ for i in range(10):
     while name in used_names:
         name = get_name()
     used_names.append(name)
-    user:User = User(get_name().split()[0])
+    user:User = User(get_name())
     users.append(user)
-
-for i in range(50):
-    user1: User = choice(users)
-    user2: User = user1
-    while user2 == user1 or user2 in user1.edges:
-        user2 = choice(users)
-    dt = random_date(start_date, datetime.now())
-    #TODO: make some kind of list of friend/unfriend events & add to list
-    # or just add the friend and list the friending/unfriending in a text file
+with open("log.txt", "w") as f:
+    for i in range(50):
+        user1: User = choice(users)
+        user2: User = user1
+        while user2 == user1 or user2 in user1.edges:
+            user2 = choice(users)
+        dt = random_date(start_date, datetime.now())
+        user1.add_edge(user2)
+        f.write(f"{user1.name} added {user2.name} as a friend on {dt:%B %d, %Y}\n")
