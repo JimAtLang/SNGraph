@@ -14,9 +14,10 @@ print(random_date(start_date, datetime.now()))
 
 users:List[User] = get_users(10)
 friendings:List[str] = make_friends(users, 50, start_date=start_date)
+posts = get_posts(users, 200)
 
 with open("log.txt", "w") as f:
-    f.writelines(get_posts(users, 200))
+    pass
 
 #TODO: make a BFS traverser with a set range
 #TODO: come up with a secret algorithm for friends of friends posts
