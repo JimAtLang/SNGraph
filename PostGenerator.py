@@ -7,7 +7,7 @@ from User import User
 start_date:datetime = datetime(2020, 1, 1)
 
 
-def getPosts(users, count):
+def get_posts(users, count):
     f:TextIO
 
     meme_formats = []
@@ -22,7 +22,8 @@ def getPosts(users, count):
     for i in range(count):
         user:User = choice(users)
         post_time:datetime = random_date(start_date, datetime.now())
-        format = choice(meme_formats)
+        post_format = choice(meme_formats)
         subject = choice(meme_subjects)
-        posts.append(f"{user.name} posted a {format} meme about {subject} on {post_time::%B %d, %Y}")
+        user.post(post_format, subject, post_time)
+        posts.append(f"{user.name} posted a {post_format} meme about {subject} on {post_time::%B %d, %Y}")
     return posts
