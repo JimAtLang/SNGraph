@@ -22,8 +22,8 @@ def get_posts(users, count):
     for i in range(count):
         user:User = choice(users)
         post_time:datetime = random_date(start_date, datetime.now())
-        post_format = choice(meme_formats)
-        subject = choice(meme_subjects)
+        post_format = choice(meme_formats).strip()
+        subject = choice(meme_subjects).strip()
         user.post(post_format, subject, post_time)
-        posts.append(f"{user.name} posted a {post_format} meme about {subject} on {post_time::%B %d, %Y}")
+        posts.append(f"{user.name} posted a {post_format} meme about {subject} on {post_time:%B %d, %Y}")
     return posts

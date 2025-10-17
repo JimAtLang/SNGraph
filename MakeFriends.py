@@ -8,7 +8,7 @@ from User import User
 
 def make_friends(users: List[User], num_users: int, start_date:datetime) -> List[str]:
     friendings = []
-    for i in range(50):
+    for i in range(num_users):
         user1: User = choice(users)
         user2: User = user1
         while user2 == user1 or user2 in user1.edges:
